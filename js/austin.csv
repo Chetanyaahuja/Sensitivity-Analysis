@@ -1,0 +1,133 @@
+symbol,date,price
+Average Temperature,Dec 2013,48.8
+Average Temperature,Jan 2014,50.87
+Average Temperature,Feb 2014,55.17
+Average Temperature,Mar 2014,59.06
+Average Temperature,Apr 2014,69.4
+Average Temperature,May 2014,74.8
+Average Temperature,Jun 2014,82.7
+Average Temperature,Jul 2014,84.58
+Average Temperature,Aug 2014,87.35
+Average Temperature,Sep 2014,80.8
+Average Temperature,Oct 2014,74.74
+Average Temperature,Nov 2014,55.96
+Average Temperature,Dec 2014,55.32
+Average Temperature,Jan 2015,48.93
+Average Temperature,Feb 2015,51.60
+Average Temperature,Mar 2015,60.48
+Average Temperature,Apr 2015,71.43
+Average Temperature,May 2015,75.41
+Average Temperature,Jun 2015,81.33
+Average Temperature,Jul 2015,85.83
+Average Temperature,Aug 2015,87.64
+Average Temperature,Sep 2015,83.56
+Average Temperature,Oct 2015,74.80
+Average Temperature,Nov 2015,61.76
+Average Temperature,Dec 2015,57.29
+Average Temperature,Jan 2016,52.16
+Average Temperature,Feb 2016,60.17
+Average Temperature,Mar 2016,66.32
+Average Temperature,Apr 2016,70.3
+Average Temperature,May 2016,74.41
+Average Temperature,Jun 2016,83.3
+Average Temperature,Jul 2016,88.25
+Average Temperature,Aug 2016,84.64
+Average Temperature,Sep 2016,82.7
+Average Temperature,Oct 2016,75.90
+Average Temperature,Nov 2016,65.9
+Average Temperature,Dec 2016,55.29
+Average Temperature,Jan 2017,56.83
+Average Temperature,Feb 2017,64.67
+Average Temperature,Mar 2017,68.81
+Average Temperature,Apr 2017,72.03
+Average Temperature,May 2017,76.58
+Average Temperature,Jun 2017,84.23
+Average Temperature,Jul 2017,89.16
+Average Humidity,Dec 2013,64
+Average Humidity,Jan 2014,52.77
+Average Humidity,Feb 2014,62.17
+Average Humidity,Mar 2014,62.77
+Average Humidity,Apr 2014,61.83
+Average Humidity,May 2014,62.51
+Average Humidity,Jun 2014,67.93
+Average Humidity,Jul 2014,66.16
+Average Humidity,Aug 2014,59.41
+Average Humidity,Sep 2014,70.67
+Average Humidity,Oct 2014,65.54
+Average Humidity,Nov 2014,65.43
+Average Humidity,Dec 2014,75
+Average Humidity,Jan 2015,67.03
+Average Humidity,Feb 2015,69.67
+Average Humidity,Mar 2015,74.48
+Average Humidity,Apr 2015,71.63
+Average Humidity,May 2015,78.51
+Average Humidity,Jun 2015,75.03
+Average Humidity,Jul 2015,66.41
+Average Humidity,Aug 2015,56.87
+Average Humidity,Sep 2015,61.03
+Average Humidity,Oct 2015,59.67
+Average Humidity,Nov 2015,71.77
+Average Humidity,Dec 2015,71.51
+Average Humidity,Jan 2016,64.06
+Average Humidity,Feb 2016,56.72
+Average Humidity,Mar 2016,66.67
+Average Humidity,Apr 2016,69.37
+Average Humidity,May 2016,75.25
+Average Humidity,Jun 2016,70.13
+Average Humidity,Jul 2016,65.48
+Average Humidity,Aug 2016,73.74
+Average Humidity,Sep 2016,70.1
+Average Humidity,Oct 2016,66.12
+Average Humidity,Nov 2016,72.53
+Average Humidity,Dec 2016,69.45
+Average Humidity,Jan 2017,62.68
+Average Humidity,Feb 2017,63.39
+Average Humidity,Mar 2017,65.83
+Average Humidity,Apr 2017,66.7
+Average Humidity,May 2017,65.51
+Average Humidity,Jun 2017,65.4
+Average Humidity,Jul 2017,58.22
+Average Dew Point,Dec 2013,35.36	
+Average Dew Point,Jan 2014,31.16
+Average Dew Point,Feb 2014,40.28
+Average Dew Point,Mar 2014,44.12
+Average Dew Point,Apr 2014,52.1
+Average Dew Point,May 2014,57.96
+Average Dew Point,Jun 2014,61.03
+Average Dew Point,Jul 2014,69.54
+Average Dew Point,Aug 2014,68.41
+Average Dew Point,Sep 2014,68.36
+Average Dew Point,Oct 2014,60.25
+Average Dew Point,Nov 2014,42.8
+Average Dew Point,Dec 2014,46.51
+Average Dew Point,Jan 2015,36.51
+Average Dew Point,Feb 2015,39.96
+Average Dew Point,Mar 2015,50.48
+Average Dew Point,Apr 2015,60.43
+Average Dew Point,May 2015,67.32
+Average Dew Point,Jun 2015,70.86
+Average Dew Point,Jul 2015,70.96
+Average Dew Point,Aug 2015,61.22
+Average Dew Point,Sep 2015,65.97
+Average Dew Point,Oct 2015,55.9
+Average Dew Point,Nov 2015,51.67
+Average Dew Point,Dec 2015,46.80
+Average Dew Point,Jan 2016,38.16
+Average Dew Point,Feb 2016,41.31
+Average Dew Point,Mar 2016,53.03
+Average Dew Point,Apr 2016,57.7
+Average Dew Point,May 2016,64.51
+Average Dew Point,Jun 2016,70.77
+Average Dew Point,Jul 2016,72.48
+Average Dew Point,Aug 2016,72.83
+Average Dew Point,Sep 2016,69.93
+Average Dew Point,Oct 2016,61.93
+Average Dew Point,Nov 2016,55.7
+Average Dew Point,Dec 2016,43.51
+Average Dew Point,Jan 2017,41.61
+Average Dew Point,Feb 2017,49.10
+Average Dew Point,Mar 2017,54.67
+Average Dew Point,Apr 2017,58.47
+Average Dew Point,May 2017,61.90
+Average Dew Point,Jun 2017,69.43
+Average Dew Point,Jul 2017,68.96	

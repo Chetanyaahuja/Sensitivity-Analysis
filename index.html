@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Data Visualization Project</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+    <script src="script3d.js"></script>
+   <script src="script_Linear.js"></script>
+   
+   <style type="text/css">
+    .modebar{
+      display: none !important;
+    }
+    svg {
+  font-family: "Helvetica Neue", Helvetica;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+#Trans {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: 20px; 
+      
+}
+#colorDiv{
+  background-color: #000;
+  color: #fff;
+}
+#sizeDiv{
+  font-size: 20px;
+
+}
+
+
+    .button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #77D5B1;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #ffffff;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+* {box-sizing: border-box;}
+
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+.image {
+  display: block;
+  height: auto;
+}
+#rcorners1 {
+    border-radius: 25px;
+    background: #000;
+    padding: 20px; 
+    color:#fff
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+
+   </style>
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="stylesheet" href="newsliderStyle.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+
+
+      <link rel="stylesheet" href="sliderStyle.css">
+
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body id="body">
+
+  <!--==========================
+    Top Bar
+  ============================-->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">cahuja3@asu.edu | dkapoor3@asu.edu | rjeevend@asu.edu</a>
+      </div>
+      <div class="social-links float-right">
+        <a href="https://www.linkedin.com/in/drishtykapoor/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/chetanyaahuja" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/rjeevend/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#body" class="scrollto">Scatter<span>plots</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#body">Home</a></li>
+          <li><a href="#about">Lets Start</a></li>
+          <li><a href="#3dPlot">3-D Visualization</a></li>
+          <li><a href="#cluster">Cluster</a></li>
+          <li><a href="#services">Sensitivity</a></li>
+          <li><a href="#team1">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+
+    <div class="intro-content">
+      <div id="rcorners1">
+      <h2>World <span>Through the Eyes</span><br>of Visualizations</h2>
+    </div>
+      <div>
+        <a href="https://www.youtube.com" class="venobox play-btn mb-4 vbox-item" data-vbtype="video" data-autoplay="true">Play Demo</a>
+        <a href="#portfolio" class="btn-projects scrollto"> Visualizations Glimpse</a>
+      </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+      
+      <div class="item" style="background-image: url('img/wallpaper/one.jpg');"></div>
+      <div class="item" style="background-image: url('img/wallpaper/two.jpg');"></div>
+      <div class="item" style="background-image: url('img/wallpaper/three.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+    </div>
+
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about" class="wow fadeInUp" style="background: rgb(0,0,0);">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 img">
+            <!-- <img src="img/Linear.png" alt=""> -->
+            <div id="myDiv" ></div>
+          </div>
+
+          <div class="col-lg-5 content">
+            <div id = "colorDiv">
+            <h1>Interactive ScatterPlot</h1>
+            <div id = "sizeDiv">
+            <p>You can drag on the plot to look at the precise position of the data points<br><br></p>
+            </div>
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i> Its showing the relation between Average Temperature and Humidity in Austin.</li>
+              <li><i class="ion-android-checkmark-circle"></i> The drag feature will help you to tackle the data clutters</li>
+              <li><i class="ion-android-checkmark-circle"></i> As it only shows the position of data points, further we extend it to show the velocities also.</li>
+            </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section><!-- #about -->
+
+
+
+
+
+    <section id="team" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Finding insights of sensitivity using Flow Based ScatterPlot</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/flow1.png" alt=""></div>
+              <div class="details">
+                <h4>Velocity for a single Data point</h4>
+                
+                <span>The tangent marked in the circle is the velocity of that data point showing the sensitivity of that point</span>
+                <!-- <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/flow2.png" alt=""></div>
+              <div class="details">
+                <h4>Tangent lines showing velocity for the complete data</h4>
+                
+                <span>All the tangent lines combine to show the sensitivity analysis of the data, representing humidity with respect to temperature.</span>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </section>
+
+
+
+    <section id="cluster" class="wow fadeInUp" style="background: rgb(0,0,0);">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 content">
+            <!-- <img src="img/Linear.png" alt=""> -->
+           <br>
+  <img id="myImage" src = "cluster1.png" style="width:600px">
+  <input id="ex13" style="align-content: center;" type="text"/>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.16/bootstrap-slider.min.js'></script>
+
+  
+
+    <script  src="slider.js"></script>
+
+
+          </div>
+
+          <div class="col-lg-4 content">
+            <br>
+            <div id="colorDiv">
+            <h1>Interactive Clustering</h1>
+            <h3>Here, you can interactively cluster the data points</h3>
+
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i> Here, you can select from 0 to 6 clusters for the data segregation</li>
+              <li><i class="ion-android-checkmark-circle"></i>All the data points in a cluster has similar velocities</li>
+              <li><i class="ion-android-checkmark-circle"></i> And all the points in the cluster deviates in a similar manner</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container">
+        
+
+        <div class="row">
+
+          <div class="col-lg-8" >
+            <div class="box wow fadeInLeft" style="background: rgb(0,0,0);">
+              <img src="Linear.png" width="630px">
+              <div id = "colorDiv">
+              <h4 class="title">Linear Regression </h4>
+              <!-- <div class="icon"><i class="fa fa-bar-chart"></i></div> -->
+              <p>Statistical model depicting the relationship between Temperature and Humidity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="box wow fadeInRight" style="background: rgb(0,0,0);" >
+              <div class="icon"><i class="fa fa-picture-o"></i></div>
+              <div id = "colorDiv">
+              <h4 class="title">Blue Line</h4>
+              <p class="description">It is the true fitting line which represents the true or the exact value of y for each possible value of x. This is showing the value of Temperature for each value of Humidity</p>
+            </div>
+            </div>
+            <div class="box wow fadeInRight" style="background: rgb(0,0,0);" >
+              <div class="icon"><i class="fa fa-picture-o"></i></div>
+              <div id = "colorDiv">
+              <h4 class="title">Pink Line</h4>
+              <p class="description">It is the logarithm fit of the data which makes the more skewed data, less skewed. It makes the data more interpretable.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="section-header">
+          <h2>Stream Lines</h2>
+          <p>The relationship between two variables from linear regression the flow of the data can be understood from streamlines. It represents the flow of the data points which is integrated with velocities to simulate the flow of the path of data points</p>
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+     <section id="about" class="wow fadeInUp" >
+      <div class="container">
+        <div class="row">
+          
+
+          <div class="col-lg-3 content">
+            
+
+            <button class="button" onclick="document.getElementById('Reg').src='img/Regression/reg1.png'">Varying Density of Data</button><br><br>
+            <button class="button" onclick="document.getElementById('Reg').src='img/Regression/reg2.png'">Varying Color based on concentration of Data</button><br><br>
+            <button class="button" onclick="document.getElementById('Reg').src='img/Regression/reg3.png'">Influential Points in the data</button><br><br>
+            <button class="button" onclick="document.getElementById('Reg').src='img/Regression/reg4.png'">Varying Width based on concentration of Data</button>
+
+          </div>
+
+          <div class="col-lg-9 img">
+            <div class="container">
+              <img id="Reg" src="img/Regression/reg4.png" alt="Avatar" class="image" width="850px">
+              <div id = "RegDiv" class="overlay">Grouping together of neighboring data points is done by streamlines with which velocities are integrated to imitate the path which a particle should follow if placed in a flow. </div>
+            </div>
+            <!-- <img src="img/Regression/reg1.png" alt="" width="850px"> -->
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="3dPlot" class="wow fadeInUp">
+      <div class="container">
+            <div id="myDiv1"></div>
+    </div>
+    </section>
+    <section id="3dPlotDesc" class="wow fadeInUp" style="background: rgb(0,0,0);">
+      <div class="container">
+        <div class="col-lg-9 content">
+           
+            <div id = "colorDiv">
+            <h1>Interactive 3-D Scatterplot Visualizing Temperature, Humidity and Dew Point</h1>
+            <div id = "sizeDiv">
+            <p>You can interact with the plot in order to see the data relations you want to, like x-y axis, y-z axis or z-x axis<br></p>
+            </div>
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i> Displaying the relations between multi dimentional data</li>
+              <li><i class="ion-android-checkmark-circle"></i> You can drag over points to see their precise locations.</li>
+           
+            </ul>
+            </div>
+        </div>
+
+          
+    </div>
+    </section>
+
+
+
+
+    <section id="about1" class="wow fadeInUp" >
+
+      <div id = "Trans" class="container" >
+        <div class="section-header">
+
+      <h2 style="color: #000">Lets See What these Transitions are:</h2>
+
+    </div>
+        
+          <div class="col-lg-12 content" >
+            
+            <script src="//d3js.org/d3.v3.min.js"></script>
+            <script src="js/scriptTrans.js">
+            </script>
+
+
+      
+        </div>
+        <br>
+        <h2 style="color: #000">The transitions are Line chart, Stacked area chart, Overlapping chart, Grouped Bar chart, Bar chart, Donut chart</h2>
+        <ul>
+          <li><b>Line Chart:</b> Temperature and Dew point seem to be having a directly proportional relationship as whenever the temperature is increasing, the dew point is also increasing</li>
+          <li><b>Stacked area Chart:</b> It is showing the relationship between temperature and dew point with intensities as it is prominent that if the temperature is decreasing by 10 units the dew point is decreasing by 6 units approximately.</li>
+          <li><b>Overlapping Chart:</b> At every time frame, it shows the intersection point of at least 2 values from temperature, humidity and dew point where they will share the exact same value. 
+        </li>
+        <li><b>Group bars Chart:</b> These bars are demonstrating the values for dew point and humidity at all time frames. The orange line represents the humidity, blue line for temperature and green one is for the dew point.
+        </li>
+        <li><b>Bar Chart:</b> It is a cumulative percentage for the complete dataset and shows that, on an average, the temperature is always higher than humidity and dew point.
+        </li>
+        <li><b>Donut Chart:</b> It is a space-efficient chart which remedies the arc reading problem faced in pie-chart by de-emphasizing the use of an area. It is displaying the ratio of temperature, humidity and dew point on an average.
+        </li>
+        </ul>
+      </div>
+    </section>
+
+
+
+
+
+    
+
+    <!--==========================
+      Our Portfolio Section
+    ============================-->
+    <section id="portfolio" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Portfolio</h2>
+          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/Linear.png" class="portfolio-popup">
+                <img src="img/Linear.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/cluster1.png" class="portfolio-popup">
+                <img src="img/cluster1.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/cluster2.png" class="portfolio-popup">
+                <img src="img/cluster2.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/cluster3.png" class="portfolio-popup">
+                <img src="img/cluster3.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/cluster4.png" class="portfolio-popup">
+                <img src="img/cluster4.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 5</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/cluster5.png" class="portfolio-popup">
+                <img src="img/cluster5.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 6</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/cluster6.png" class="portfolio-popup">
+                <img src="img/cluster6.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 7</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/reg1.png" class="portfolio-popup">
+                <img src="img/reg1.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 8</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/reg2.png" class="portfolio-popup">
+                <img src="img/reg2.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/reg3.png" class="portfolio-popup">
+                <img src="img/reg3.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/reg4.png" class="portfolio-popup">
+                <img src="img/reg4.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/scatter.png" class="portfolio-popup">
+                <img src="img/scatter.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/3d.png" class="portfolio-popup">
+                <img src="img/3d.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/trans1.png" class="portfolio-popup">
+                <img src="img/trans1.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/trans2.png" class="portfolio-popup">
+                <img src="img/trans2.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/trans3.png" class="portfolio-popup">
+                <img src="img/trans3.png" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+  
+
+    <!--==========================
+      Our Team Section
+    ============================-->
+    <section id="team1" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Team</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/teamChetanya.jpg" alt=""></div>
+              <div class="details">
+                <h4>Chetanya Ahuja</h4>
+                <span>Software Engineer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/teamDrishty.jpg" alt=""></div>
+              <div class="details">
+                <h4>Drishty Kapoor</h4>
+                <span>Software Engineer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/team-3.jpg" alt=""></div>
+              <div class="details">
+                <h4>Raghav Jeevendra</h4>
+                <span>Software Engineer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>A108 Adam Street, NY 535022, USA</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <!-- <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
+      </div>
+      <div class="credits"> -->
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+        -->
+        
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="lib/sticky/sticky.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
